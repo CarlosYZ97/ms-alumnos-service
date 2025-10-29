@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: ms-alumno-service
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5435/alumnosdb
+    username: postgres
+    password: postgres
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30s
+      validation-query: SELECT 1
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+    io.r2dbc.postgresql: DEBUG
+    org.springframework.web: INFO
+
+server:
+  port: 8082

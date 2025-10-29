@@ -1,0 +1,100 @@
+# -------------------
+# Java
+# -------------------
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+*.bak
+*.swp
+*.orig
+
+# Java crash logs
+hs_err_pid*
+replay_pid*
+
+# -------------------
+# Gradle
+# -------------------
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+gradle-app.setting
+
+# Gradle Wrapper scripts
+!gradlew
+!gradlew.bat
+
+# Local Gradle properties (optional)
+gradle-local.properties
+
+# -------------------
+# IntelliJ IDEA
+# -------------------
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# -------------------
+# VS Code (por si lo usas también)
+# -------------------
+.vscode/
+
+# -------------------
+# Sistema Operativo
+# -------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# -------------------
+# Archivos temporales comunes
+# -------------------
+*.sublime-workspace
+*.sublime-project
+*.tmp
+*.bak
+*.swp
+
+# -------------------
+# Otros
+# -------------------
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -------------------
+# Archivos generados por herramientas de reporting, coverage o análisis
+# -------------------
+/coverage/
+*.lcov
+/test-output/
+jacoco.exec
+*.exec
+*.ec
+*.coverage
+*.cover
+*.classdata
+
+# -------------------
+# Logs personalizados
+# -------------------
+*.log
+logs/
