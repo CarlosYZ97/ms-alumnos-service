@@ -1,6 +1,7 @@
 package pe.scotiabank.ms.alumnos.service.infrastructure.common.exception;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -57,6 +58,21 @@ public class GlobalExceptionHandler {
                         ApiError.builder()
                                 .codigo(ErrorCode.VALIDATION_ERROR.getCode())
                                 .message(errorMessages)
+                                .path(exchange.getRequest().getPath().value())
+                                .build()
+                )
+        );
+    }
+
+    @ExceptionHandler(OptimisticLockingFailureException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Mono<ApiErrorResponse> handleOptimisticLock(OptimisticLockingFailureException ex,
+                                                       ServerWebExchange exchange) {
+        return Mono.just(
+                new ApiErrorResponse(
+                        ApiError.builder()
+                                .codigo(ErrorCode.CONCURRENCY_ERROR.getCode())
+                                .message(ErrorCode.CONCURRENCY_ERROR.getDefaultMessage())
                                 .path(exchange.getRequest().getPath().value())
                                 .build()
                 )

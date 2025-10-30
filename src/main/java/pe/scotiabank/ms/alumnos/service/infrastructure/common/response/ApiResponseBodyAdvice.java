@@ -20,6 +20,15 @@ public class ApiResponseBodyAdvice extends ResponseBodyResultHandler {
     @Override
     public Mono<Void> handleResult(ServerWebExchange exchange, HandlerResult result) {
 
+        String path = exchange.getRequest().getURI().getPath();
+
+        if (path.startsWith("/v3/api-docs") ||
+                path.startsWith("/swagger") ||
+                path.startsWith("/swagger-ui") ||
+                path.startsWith("/webjars")) {
+            return super.handleResult(exchange, result);
+        }
+
         Object returnValue = result.getReturnValue();
 
         if (returnValue instanceof Mono<?> mono) {

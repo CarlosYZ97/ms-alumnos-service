@@ -8,4 +8,6 @@ public interface AlumnoRepository {
     Mono<Void> create(Alumno alumno);
 
     Flux<Alumno> getAllActives();
+    Mono<Alumno> findById(Long id);
+    Mono<Alumno> update(Alumno alumno);
 }

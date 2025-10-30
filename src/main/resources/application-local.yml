@@ -3,9 +3,9 @@ spring:
     name: ms-alumno-service
 
   r2dbc:
-    url: r2dbc:postgresql://localhost:5435/alumnosdb
-    username: postgres
-    password: postgres
+    url: ${R2DBC_URL:r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5435}/${DB_NAME:alumnosdb}}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
     pool:
       enabled: true
       initial-size: 5
@@ -24,6 +24,20 @@ logging:
     org.springframework.r2dbc: DEBUG
     io.r2dbc.postgresql: DEBUG
     org.springframework.web: INFO
+    org.springdoc: DEBUG
 
 server:
-  port: 8082
+  port: ${SERVER_PORT:8082}
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    url: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  packages-to-scan: pe.scotiabank.ms.alumnos.service.infrastructure.controller
+

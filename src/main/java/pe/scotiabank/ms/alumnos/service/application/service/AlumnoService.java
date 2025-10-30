@@ -10,4 +10,6 @@ public interface AlumnoService {
 
     Flux<Alumno> findAllActivos();
 
+    Mono<Alumno> update (Long id, Alumno alumno);
+
 }

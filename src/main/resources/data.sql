@@ -1,7 +1,7 @@
 DELETE FROM alumnos;
 
-INSERT INTO alumnos (id, nombre, apellido, estado, edad)
-VALUES ('1', 'Carlos', 'Yunca', 1, 25);
+INSERT INTO alumnos (nombre, apellido, estado, edad, created_at, updated_at)
+VALUES ('Carlos', 'Yunca', 1, 25, '2025-10-29T17:15:00', '2025-10-29T17:15:00');
 
-INSERT INTO alumnos (id, nombre, apellido, estado, edad)
-VALUES ('2', 'Ana', 'Pérez', 0, 22);
+INSERT INTO alumnos (nombre, apellido, estado, edad, created_at, updated_at)
+VALUES ('Ana', 'Pérez', 0, 22, '2025-10-29T17:15:00', '2025-10-29T17:15:00');

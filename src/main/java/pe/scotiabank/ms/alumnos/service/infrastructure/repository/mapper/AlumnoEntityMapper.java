@@ -9,13 +9,18 @@ import pe.scotiabank.ms.alumnos.service.infrastructure.repository.entity.AlumnoE
 @Mapper(componentModel = "spring")
 public interface AlumnoEntityMapper {
 
+
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "estado", expression = "java(alumno.getEstado().getCode())")
     AlumnoEntity toEntity(Alumno alumno);
+    @Mapping(target = "estado", expression = "java(alumno.getEstado().getCode())")
+    AlumnoEntity toEntityForUpdate(Alumno alumno);
 
     @Mapping(
             target = "estado",
             expression = "java(pe.scotiabank.ms.alumnos.service.domain.enums.Estado.fromCode(alumnoEntity.getEstado()))"
     )
+
     Alumno toModel(AlumnoEntity alumnoEntity);
 
 }

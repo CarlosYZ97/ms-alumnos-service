@@ -9,10 +9,7 @@ import pe.scotiabank.ms.alumnos.service.domain.enums.Estado;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AlumnoRequestDto {
-
-    @NotNull(message = "El id es obligatorio")
-    private Integer id;
+public class AlumnoUpdateRequestDto {
 
     @NotBlank(message = "El nombre es obligatorio")
     @Size(max = 100, message = "El nombre no debe exceder los 100 caracteres")
