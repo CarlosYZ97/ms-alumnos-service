@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import pe.scotiabank.ms.alumnos.service.application.service.AlumnoService;
 import pe.scotiabank.ms.alumnos.service.domain.enums.Estado;
@@ -28,10 +28,10 @@ public class AlumnoControllerTest {
     @Autowired
     private WebTestClient webTestClient;
 
-    @MockitoBean
+    @MockBean
     private AlumnoService alumnoService;
 
-    @MockitoBean
+    @MockBean
     private AlumnoDtoMapper alumnoDtoMapper;
 
     private Alumno alumno;
